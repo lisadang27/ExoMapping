@@ -298,3 +298,14 @@ def check_phase(checkPhasePhis, A, B, C=0, D=0):
         return -np.inf
     else:
         return 0
+
+    def linear_slope(time, m1=0):
+    """Model the detector systematics with a simple slope in time.
+    Args:
+        time (ndarray): The time.
+        m1 (float): The slope in sensitivity over time with respect to time[0].
+    Returns:
+        ndarray: The flux variations due to the detector systematics.
+    """
+    
+    return 1+(time-time[0])*m1
